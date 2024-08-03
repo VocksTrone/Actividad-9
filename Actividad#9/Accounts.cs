@@ -119,13 +119,22 @@ namespace Actividad_9
             Console.WriteLine("\nIngrese el ID de la Cuenta");
             string id = Console.ReadLine();
             Accounts addAccount = accountsList.Find(p => p.ID == id);
-            foreach (Accounts accountAdd in accountsList)
+            if (addAccount != null)
             {
-                if (addAccount.ID == id)
+                Console.WriteLine("\nCuenta Encontrada");
+                foreach (Accounts accountAdd in accountsList)
                 {
-                    Console.WriteLine($"\nEl Saldo de la Cuenta es: Q.{Math.Round(accountAdd.Amount, 2)}");
-                    Console.ReadKey(); 
+                    if (addAccount.ID == id)
+                    {
+                        Console.WriteLine($"\nEl Saldo de la Cuenta es: Q.{Math.Round(accountAdd.Amount, 2)}");
+                        Console.ReadKey();
+                    }
                 }
+            }
+            else
+            {
+                Console.WriteLine("\nLa Cuenta No Existe");
+                Console.ReadKey();
             }
         }
         public static void MostrarDatos(ref List<Accounts> accountsList)
@@ -149,7 +158,7 @@ namespace Actividad_9
                         Console.WriteLine($"\nID: {accountAdd.ID}");
                         Console.WriteLine($"\nNombre: {accountAdd.Name}");
                         Console.WriteLine($"\nTipo de Cuenta: {accountAdd.Type}");
-                        Console.WriteLine($"\nMonto: Q.{accountAdd.Amount}"); 
+                        Console.WriteLine($"\nMonto: Q.{accountAdd.Amount}");
                     }
                 }
                 Console.ReadKey();
