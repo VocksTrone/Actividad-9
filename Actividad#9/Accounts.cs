@@ -163,17 +163,24 @@ namespace Actividad_9
                 Console.Write("\nIngrese el ID de la Cuenta: ");
                 string id = Console.ReadLine();
                 Accounts addAccount = accountsList.Find(p => p.ID == id);
-                foreach (Accounts accountAdd in accountsList)
+                if (addAccount != null)
                 {
-                    if (accountAdd.ID == id)
+                    foreach (Accounts accountAdd in accountsList)
                     {
-                        Console.WriteLine($"\nID: {accountAdd.ID}");
-                        Console.WriteLine($"\nNombre: {accountAdd.Name}");
-                        Console.WriteLine($"\nTipo de Cuenta: {accountAdd.Type}");
-                        Console.WriteLine($"\nMonto: Q.{accountAdd.Amount}");
+                        if (accountAdd.ID == id)
+                        {
+                            Console.WriteLine($"\nID: {accountAdd.ID}");
+                            Console.WriteLine($"\nNombre: {accountAdd.Name}");
+                            Console.WriteLine($"\nTipo de Cuenta: {accountAdd.Type}");
+                            Console.WriteLine($"\nMonto: Q.{accountAdd.Amount}");
+                        }
                     }
                 }
-                Console.WriteLine("Presione Enter para continuar...");
+                else
+                {
+                    Console.WriteLine("\nLa Cuenta No Existe");
+                }
+                Console.WriteLine("\nPresione Enter para continuar...");
                 Console.ReadKey();
             }
         }
