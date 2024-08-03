@@ -24,6 +24,7 @@ static int MostrarMenu()
     Console.WriteLine("5. Consultar Saldo");
     Console.WriteLine("6. Mostrar Datos");
     Console.WriteLine("7. Salir");
+    Console.Write("Ingrese una Opción: ");
     int menuOption = int.Parse(Console.ReadLine());
     return menuOption;
 }
