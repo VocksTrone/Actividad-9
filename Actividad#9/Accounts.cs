@@ -16,13 +16,13 @@ namespace Actividad_9
         {
             Console.Clear();
             Banco();
-            Console.WriteLine("\nIngrese el ID de la Cuenta");
+            Console.Write("\nIngrese el ID de la Cuenta: ");
             string id = Console.ReadLine();
-            Console.WriteLine("\nIngrese el Nombre de la Cuenta");
+            Console.Write("\nIngrese el Nombre de la Cuenta: ");
             string name = Console.ReadLine();
-            Console.WriteLine("\nIngrese el Tipo de Cuenta (Monetaria | Ahorro)");
+            Console.Write("\nIngrese el Tipo de Cuenta (Monetaria | Ahorro): ");
             string type = Console.ReadLine();
-            Console.WriteLine("\nIngrese el Monto Inicial de la Cuenta");
+            Console.Write("\nIngrese el Monto Inicial de la Cuenta: ");
             double amount = double.Parse(Console.ReadLine());
             Accounts addAccount = accountsList.Find(p => p.ID == id);
             if (addAccount == null)
@@ -30,11 +30,13 @@ namespace Actividad_9
                 Console.WriteLine("\nCuenta Añadida Exitosamente");
                 Accounts newAccount = new Accounts(id, name, type, amount);
                 accountsList.Add(newAccount);
+                Console.WriteLine("Presione Enter para continuar...");
                 Console.ReadKey();
             }
             else
             {
                 Console.WriteLine("\nLa Cuenta Ya Existe");
+                Console.WriteLine("Presione Enter para continuar...");
                 Console.ReadKey();
             }
         }
@@ -42,21 +44,23 @@ namespace Actividad_9
         {
             Console.Clear();
             Banco();
-            Console.WriteLine("\nIngrese el ID de la Cuenta");
+            Console.Write("\nIngrese el ID de la Cuenta: ");
             string id = Console.ReadLine();
             Accounts addAccount = accountsList.Find(p => p.ID == id);
             if (addAccount != null)
             {
                 Console.WriteLine("\nCuenta Encontrada");
-                Console.WriteLine("\nIngrese la Cantidad a Depositar");
+                Console.Write("\nIngrese la Cantidad a Depositar: ");
                 double deposit = double.Parse(Console.ReadLine());
                 addAccount.Amount = Math.Round(addAccount.Amount + deposit, 2);
                 Console.WriteLine("\nDepósito Realizado con Éxito");
+                Console.WriteLine("Presione Enter para continuar...");
                 Console.ReadKey();
             }
             else
             {
                 Console.WriteLine("\nLa Cuenta No Existe");
+                Console.WriteLine("Presione Enter para continuar...");
                 Console.ReadKey();
             }
         }
@@ -64,29 +68,32 @@ namespace Actividad_9
         {
             Console.Clear();
             Banco();
-            Console.WriteLine("\nIngrese el ID de la Cuenta");
+            Console.Write("\nIngrese el ID de la Cuenta: ");
             string id = Console.ReadLine();
             Accounts addAccount = accountsList.Find(p => p.ID == id);
             if (addAccount != null)
             {
                 Console.WriteLine("\nCuenta Encontrada");
-                Console.WriteLine("\nIngrese la Cantidad a Retirar");
+                Console.Write("\nIngrese la Cantidad a Retirar: ");
                 double withdraw = double.Parse(Console.ReadLine());
                 if (withdraw <= addAccount.Amount)
                 {
                     addAccount.Amount = Math.Round(addAccount.Amount - withdraw, 2);
                     Console.WriteLine("\nRetiro Realizado con Éxito");
+                    Console.WriteLine("Presione Enter para continuar...");
                     Console.ReadKey();
                 }
                 else
                 {
                     Console.WriteLine("\nEl Monto de la Cuenta es Insuficiente");
+                    Console.WriteLine("Presione Enter para continuar...");
                     Console.ReadKey();
                 }
             }
             else
             {
                 Console.WriteLine("\nLa Cuenta No Existe");
+                Console.WriteLine("Presione Enter para continuar...");
                 Console.ReadKey();
             }
         }
@@ -94,21 +101,23 @@ namespace Actividad_9
         {
             Console.Clear();
             Banco();
-            Console.WriteLine("\nIngrese el ID de la Cuenta");
+            Console.Write("\nIngrese el ID de la Cuenta: ");
             string id = Console.ReadLine();
             Accounts addAccount = accountsList.Find(p => p.ID == id);
             if (addAccount != null)
             {
                 Console.WriteLine("\nCuenta Encontrada");
-                Console.WriteLine("\nIngrese la Nuevo Tipo de Cuenta (Monetaria | Ahorro)");
+                Console.Write("\nIngrese la Nuevo Tipo de Cuenta (Monetaria | Ahorro): ");
                 string newType = Console.ReadLine();
                 addAccount.Type = newType;
                 Console.WriteLine("\nEl Tipo de Cuenta fue Actualizado con Éxito");
+                Console.WriteLine("Presione Enter para continuar...");
                 Console.ReadKey();
             }
             else
             {
                 Console.WriteLine("\nLa Cuenta No Existe");
+                Console.WriteLine("Presione Enter para continuar...");
                 Console.ReadKey();
             }
         }
@@ -116,7 +125,7 @@ namespace Actividad_9
         {
             Console.Clear();
             Banco();
-            Console.WriteLine("\nIngrese el ID de la Cuenta");
+            Console.Write("\nIngrese el ID de la Cuenta: ");
             string id = Console.ReadLine();
             Accounts addAccount = accountsList.Find(p => p.ID == id);
             if (addAccount != null)
@@ -127,6 +136,7 @@ namespace Actividad_9
                     if (addAccount.ID == id)
                     {
                         Console.WriteLine($"\nEl Saldo de la Cuenta es: Q.{Math.Round(accountAdd.Amount, 2)}");
+                        Console.WriteLine("Presione Enter para continuar...");
                         Console.ReadKey();
                     }
                 }
@@ -134,6 +144,7 @@ namespace Actividad_9
             else
             {
                 Console.WriteLine("\nLa Cuenta No Existe");
+                Console.WriteLine("Presione Enter para continuar...");
                 Console.ReadKey();
             }
         }
@@ -144,11 +155,12 @@ namespace Actividad_9
             if (accountsList.Count == 0)
             {
                 Console.WriteLine("\nNo Existen Cuentas Registradas");
+                Console.WriteLine("Presione Enter para continuar...");
                 Console.ReadKey();
             }
             else
             {
-                Console.WriteLine("\nIngrese el ID de la Cuenta");
+                Console.Write("\nIngrese el ID de la Cuenta: ");
                 string id = Console.ReadLine();
                 Accounts addAccount = accountsList.Find(p => p.ID == id);
                 foreach (Accounts accountAdd in accountsList)
@@ -161,6 +173,7 @@ namespace Actividad_9
                         Console.WriteLine($"\nMonto: Q.{accountAdd.Amount}");
                     }
                 }
+                Console.WriteLine("Presione Enter para continuar...");
                 Console.ReadKey();
             }
         }

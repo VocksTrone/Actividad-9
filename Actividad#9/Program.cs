@@ -17,6 +17,7 @@ while (generalContinue)
 static int MostrarMenu()
 {
     Console.Clear();
+    Console.WriteLine(" --- BANCO EL PATRÓN ---");
     Console.WriteLine("1. Agregar Cuenta");
     Console.WriteLine("2. Depositar");
     Console.WriteLine("3. Retirar");
